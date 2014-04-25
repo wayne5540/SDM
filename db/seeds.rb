@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Mtype.create(name: 'base')
+Mtype.create(name: 'syrup')
+Mtype.create(name: 'additive')
+
+
+
