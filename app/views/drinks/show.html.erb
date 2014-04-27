@@ -1,2 +1,14 @@
-<h1>Drinks#show</h1>
-<p>Find me in app/views/drinks/show.html.erb</p>
+
+<h1><%= @drink.name %></h1>
+<table>
+  <thead>
+    <td>Base</td>
+  </thead>
+  <tbody>
+  <% @materials.each do |m| %>
+    <tr><td><%= m.mtype.name %>--<%= m.name %></td></tr>
+  <% end %>
+  </tbody>
+</table>
+
+

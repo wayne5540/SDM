@@ -1,5 +1,7 @@
 <h1>Drinks#index</h1>
-<p>Find me in app/views/drinks/index.html.erb</p>
 
-
-
+<ul>
+  <% @drinks.each do |d| %>
+    <li><%= link_to d.name, drink_path(d) %></li>
+  <% end %>
+</ul>
