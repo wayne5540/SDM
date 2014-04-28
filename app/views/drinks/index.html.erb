@@ -1,7 +1,28 @@
-<h1>Drinks#index</h1>
+<div class="row centered">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Drink Lists</h1>
+    <div class="panel panel-default">
+      <div class="panel-heading">Drinks</div>
+      <table class="table">
+        <thead>
+          <td>#</td>
+          <td>Name</td>
+          <td>Description</td>
+        </thead>
+        <% @drinks.each do |d| %>
+          <tr>
+            <td><%= d.id %></td>
+            <td><%= link_to(d.name, drink_path(d)) %></td>
+            <td><%= d.description %></td>
+          </tr></a>
+        <% end %>
+      </table>
 
-<ul>
-  <% @drinks.each do |d| %>
-    <li><%= link_to d.name, drink_path(d) %></li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
