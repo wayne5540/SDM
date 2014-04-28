@@ -7,7 +7,8 @@ ready = ->
     select $(this)
 
 select = (obj) ->
-  if obj.attr "status"
+  status = obj.attr "status"
+  if status is "false"
     addMaterial(obj)
   else
     removeMaterial(obj)
@@ -21,7 +22,9 @@ addMaterial = (obj) ->
   $(checkbox_id).attr checked: true
 
 removeMaterial = (obj) ->
-  obj.appendTo "#selected-materials ul"
+  console.log obj.attr "type"
+  origin_place = "#" + obj.attr "type"
+  obj.appendTo $(origin_place)
   obj.removeClass "actived"
   obj.attr status: false
   checkbox_id = "#drink_material_ids_" + obj.attr "id"

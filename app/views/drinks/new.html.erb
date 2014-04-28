@@ -1,26 +1,26 @@
 <h1>飲料調配大師</h1>
 
 <div id="select-materials" class="row">
-  <div class="col-md-4 base">
+  <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">飲料底液</div>
-      <ul class="list-group">
+      <ul id="base" class="list-group">
           <% list_materials(@base) %>
       </ul>
     </div>
   </div>
-  <div class="col-md-4 syrup">
+  <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">糖漿</div>
-      <ul class="list-group">
+      <ul id="syrup" class="list-group">
         <% list_materials(@syrup) %>
       </ul>
     </div>
   </div>
-  <div class="col-md-4 additive">
+  <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">添加物</div>
-      <ul class="list-group">
+      <ul id="additive" class="list-group">
         <% list_materials(@additive) %>
       </ul>
     </div>
@@ -34,16 +34,20 @@
     </div>
   </div>
 </div>
-
-<%=  simple_form_for @drink do |f| %>
-  <%= f.input :name, :input_html => { :class => "input-xxlarge"} %>
-  <%= f.input :way, :input_html => { :class => "input-xxlarge"} %>
-  <%= f.input :description, :input_html => { :class => "input-xxlarge"} %>
-  <%= f.association :materials, :as => :check_boxes %>
-  <div class="form-actions">
-    <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary"%>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%=  simple_form_for @drink do |f| %>
+      <%= f.input :name, :input_html => { :class => "input-xxlarge form-control"} %>
+      <%= f.input :way, :input_html => { :class => "input-xxlarge form-control"} %>
+      <%= f.input :description, :input_html => { :class => "input-xxlarge form-control"} %>
+      <%= f.association :materials, :as => :check_boxes %>
+      <br>
+      <div class="form-actions">
+        <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-success form-control"%>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 
 
