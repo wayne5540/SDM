@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise', '3.0.2'
 
-gem "anjlab-bootstrap-rails", "2.3.1.2", :require => "bootstrap-rails"
+gem "anjlab-bootstrap-rails", ">= 3.0.0.0", :require => "bootstrap-rails"
 gem "bootstrap_helper", ">= 4.2.2.1"
 gem "simple_form", "~> 3.0.1" 
 gem "will_paginate", "3.0.3"
