@@ -1,14 +1,49 @@
-
+<%= render :partial => "facebook_share" %>
 <h1><%= @drink.name %></h1>
-<table>
-  <thead>
-    <td>Base</td>
-  </thead>
-  <tbody>
-  <% @materials.each do |m| %>
-    <tr><td><%= m.mtype.name %>--<%= m.name %></td></tr>
-  <% end %>
-  </tbody>
-</table>
 
+<div class="row">
+
+  <!-- materials-info & drink-way-info -->
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">飲料原料</div>
+      <ul id="base" class="list-group">
+        <% @materials.each do |m| %>
+          <li class="list-group-item <%= m.mtype.name %>"><%= m.name %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- drink-way-info -->
+    <div class="panel panel-default">
+      <div class="panel-heading">製作方式</div>
+      <div class="panel-body">
+        <%= simple_format(@drink.way) %>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- drink-description-info -->
+  <div class="col-md-8">
+    <div class="panel panel-warning">
+      <div class="panel-heading">飲料特色</div>
+      <div class="panel-body">
+        <%= simple_format(@drink.description) %>
+      </div>
+    </div>
+  </div>
+</div><!-- end of first row -->
+
+
+
+
+
+<div class="row centered">
+  <%= link_to("跟Facebook朋友分享", "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}", :class => "btn btn-lg btn-primary", :target => "_blank") %>
+</div>
+
+
+
+<%= render :partial => "disqus" %>
 

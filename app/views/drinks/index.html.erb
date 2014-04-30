@@ -12,8 +12,8 @@
         <% @drinks.each do |d| %>
           <tr>
             <td><%= d.id %></td>
-            <td><%= link_to(d.name, drink_path(d)) %></td>
-            <td><%= d.description %></td>
+            <td><%= link_to( truncate(d.name , :length => 30), drink_path(d)) %></td>
+            <td><%= truncate(d.description, :length => 50) %></td>
           </tr></a>
         <% end %>
       </table>

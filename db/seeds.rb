@@ -11,7 +11,7 @@ mtypes = ['base', 'syrup', 'additive']
 mtypes.each do |m|  Mtype.create(name: m) end
 
 #setup materials -> Matrials
-base_materials = ['濃縮咖啡', '本日精選',
+base_materials = ['濃縮咖啡', '本日精選咖啡',
  '玫瑰紅茶', '東方美人', '紅玉紅茶', '碧螺春',
  '阿里山烏龍', '星冰樂咖啡底液', '星冰樂牛奶底液',
  '星冰樂果汁底液', '牛奶', '豆漿']
