@@ -31,6 +31,4 @@ removeMaterial = (obj) ->
   $(checkbox_id).attr checked: false
 
 
-
-
 $(document).ready(ready)

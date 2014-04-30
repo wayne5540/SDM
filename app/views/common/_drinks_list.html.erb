@@ -1,0 +1,32 @@
+
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">Drinks</div>
+      <table class="table">
+        <thead>
+          <td>#</td>
+          <td>Name</td>
+          <td>Description</td>
+        </thead>
+        <% @drinks.each do |drink| %>
+          <tr>
+            <td><%= drink.id %></td>
+            <td><%= link_to( truncate(drink.name, :length => 30), drink_path(drink)) %></td>
+            <td><%= truncate(drink.description, :length => 50) %></td>
+            <td>
+              <% if current_user && drink.user == current_user %>
+                <%= link_to("Edit", edit_drink_path(drink)) %>
+                <%= link_to("Delete", drink_path(drink), :method => :delete, :confirm => "Are you sure?")%>
+              <% end %>
+            </td>
+          </tr></a>
+        <% end %>
+      </table>
+
+    </div>
+
+
+
+
+
+

@@ -1,8 +1,12 @@
-<%= render :partial => "facebook_share" %>
-<h1><%= @drink.name %></h1>
+<%= render :partial => "facebook_share_setup" %>
+<div class="row centered">
+  <div class="col-md-12">
+    <h1><%= @drink.name %></h1>
+  </div>
+</div>
+
 
 <div class="row">
-
   <!-- materials-info & drink-way-info -->
   <div class="col-md-4">
     <div class="panel panel-default">
@@ -33,14 +37,19 @@
       </div>
     </div>
   </div>
-</div><!-- end of first row -->
+</div><!-- end of row -->
+<div class="row centered">
+  <div class="col-md-12">
+    <p>Drink Made By <%= link_to(@drink.user.name, user_path(@drink.user)) %></p>
+  </div>
+</div>
 
 
 
 
 
 <div class="row centered">
-  <%= link_to("跟Facebook朋友分享", "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}", :class => "btn btn-lg btn-primary", :target => "_blank") %>
+  <%= render :partial => "common/fb_share" %>
 </div>
 
 

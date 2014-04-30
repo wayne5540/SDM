@@ -10,10 +10,19 @@ class DrinksController < ApplicationController
   end
 
   def edit
+    @drink = current_user.drinks.find(params[:id])
+    @base = Mtype.find(1).materials
+    @syrup = Mtype.find(2).materials
+    @additive = Mtype.find(3).materials
   end
 
   def update
-    
+    @drink = current_user.drinks.find(params[:id])
+    if @drink.update(drink_params)
+      redirect_to drink_path(@drink)
+    else
+      render :edit
+    end
   end
 
   def new
@@ -34,7 +43,9 @@ class DrinksController < ApplicationController
   end
 
   def destroy
-    
+    @drink = current_user.drinks.find(params[:id])
+    @drink.destroy
+    redirect_to user_path(current_user)
   end
 
 

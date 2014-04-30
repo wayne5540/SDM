@@ -1,28 +1,8 @@
 <div class="row centered">
   <div class="col-md-8 col-md-offset-2">
     <h1>Drink Lists</h1>
-    <div class="panel panel-default">
-      <div class="panel-heading">Drinks</div>
-      <table class="table">
-        <thead>
-          <td>#</td>
-          <td>Name</td>
-          <td>Description</td>
-        </thead>
-        <% @drinks.each do |d| %>
-          <tr>
-            <td><%= d.id %></td>
-            <td><%= link_to( truncate(d.name , :length => 30), drink_path(d)) %></td>
-            <td><%= truncate(d.description, :length => 50) %></td>
-          </tr></a>
-        <% end %>
-      </table>
+    <%= render :partial => "common/drinks_list" %>
 
-    </div>
+
   </div>
 </div>
-
-
-
-
-

@@ -1,2 +1,75 @@
-<h1>Drinks#edit</h1>
-<p>Find me in app/views/drinks/edit.html.erb</p>
+
+<h1>飲料調配大師</h1>
+
+<div id="select-materials" class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">飲料底液</div>
+      <ul id="base" class="list-group">
+          <% list_materials(@base) %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">糖漿</div>
+      <ul id="syrup" class="list-group">
+        <% list_materials(@syrup) %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">添加物</div>
+      <ul id="additive" class="list-group">
+        <% list_materials(@additive) %>
+      </ul>
+    </div>
+  </div>
+</div><!-- end of .row -->
+<div id="selected-materials" class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">選擇的內容</div>
+      <ul class="list-group"></ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%=  simple_form_for @drink do |f| %>
+      <%= f.input :name, :input_html => { :class => "input-xxlarge form-control"} %>
+      <%= f.input :way, :input_html => { :class => "input-xxlarge form-control"} %>
+      <%= f.input :description, :input_html => { :class => "input-xxlarge form-control"} %>
+      <%= f.association :materials, :as => :check_boxes %>
+      <br>
+      <div class="form-actions">
+        <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-success form-control"%>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var checked_list = [];
+    var $check_boxes = $(".check_boxes");
+    console.log($check_boxes);
+    $check_boxes.each(function(i, check_box){
+      if (check_box.checked) {
+        checked_list.push(check_box.value);
+      };
+    });
+    $.each(checked_list, function(i, value){
+      obj = "#" + value
+      $(obj).appendTo("#selected-materials ul");
+      $(obj).attr("status", true);
+    });
+  });
+
+</script>
+
+
+
+
+
