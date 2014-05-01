@@ -4,6 +4,7 @@
     <h1><%= @user.name %></h1>
     <%= render :partial => "common/drinks_list" %>
   </div>
+    <%= link_to("+新增飲料", new_drink_path(current_user)) if user_auth(@user)%>
 </div>
 
 <div class="row centered">

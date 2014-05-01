@@ -1,6 +1,6 @@
 Starbucks::Application.routes.draw do
   root "static_pages#home"
-  get "static_pages/contact"
+  get "contact" => "static_pages#contact", as: :contact
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :drinks
   resources :materials
